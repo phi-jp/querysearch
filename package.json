@@ -1,0 +1,19 @@
+{
+  "name": "querysearch",
+  "version": "0.0.1",
+  "description": "querysearch",
+  "main": "querysearch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phi-jp/querysearch.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phi-jp/querysearch/issues"
+  },
+  "homepage": "https://github.com/phi-jp/querysearch#readme"
+}

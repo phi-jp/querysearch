@@ -1,0 +1,81 @@
+<!doctype html>
+ 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>Test | Socialink</title>
+    <meta name="description" content="${description}" />
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/jade.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/riot/3.1.0/riot+compiler.js'></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/phi-jp/meltline/03f8b9c6c395357a4efef81ebea5c04ec5e58c04/meltline.min.css">
+
+    <script src='querysearch.js'></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <app></app>
+  </body>
+</html>
+
+<script type="riot/tag" template='jade'>
+app
+  header.white.text-center.p16
+    h1 QuerySearch
+
+  form.p16(ref='form', onsubmit='{parse}')
+    div.row.fs13
+      div.col6.p8
+        div.f.mb16
+          input.border.px8.py4.w100per.rounded-3.mr4(ref='search', type='search', value=' @phi hogefoobar #hoge #foo #bar private:true')
+          button.button.primary(ref='btn') search
+        div.examples
+          button.button.w100per.mb8(each='{v in examples}', onclick='{setExample}') {v}
+      div.col6.p8
+        textarea.w-full.h400.border.p8(ref='output')
+
+  style(scoped, type='less').
+    :scope {
+      display: block;
+      height: 100%;
+
+      header {
+        background-color: hsl(40, 80%, 60%);
+      }
+    }
+
+  script.
+    var self = this;
+    this.examples = [
+      ' @phi hogefoobar #hoge #foo #bar private:true',
+      'from:from to:to @mention since:2017-04-02 until:2017-04-13',
+      'aaa "bbb" ccc -ddd #eee since:2017-04-05 until:2017-04-13',
+    ];
+
+    this.on('mount', function() {
+      this.refs.btn.click();
+    });
+
+    this.parse = function(e) {
+      var qs = QuerySearch.parse(this.refs.search.value);
+      this.refs.output.value = JSON.stringify(qs, null, '  ');
+      e.preventDefault();
+    };
+
+    this.setExample = function(e) {
+      self.refs.search.value = e.item.v;
+    };
+
+
+</script>
+
+<script>
+riot.mount('app');
+</script>
