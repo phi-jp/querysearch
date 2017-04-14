@@ -2,4 +2,4 @@
 
 querysearch
 
-<http://phi-jp.github.io/querysearch>
+<http://phi-jp.github.io/querysearch/>
