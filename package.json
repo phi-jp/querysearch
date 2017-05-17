@@ -1,6 +1,6 @@
 {
   "name": "querysearch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "querysearch",
   "main": "querysearch.js",
   "scripts": {
