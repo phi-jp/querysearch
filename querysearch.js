@@ -7,7 +7,7 @@
 
   var tagRE = /[ ]?#(w*[一-龠_ぁ-ん_ァ-ヴーa-zA-Z0-9]+w*)/g;
   var userRE = /@([A-Za-z0-9_-]+)/;
-  var optionRE = /([A-Za-z0-9_-]+\:[A-Za-z0-9_-]+)/g;
+  var optionRE = /(\S+\:\S+)/g;
 
   var QuerySearch = {
     parse: function(query) {
