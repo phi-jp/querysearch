@@ -5,7 +5,7 @@
 
 ;(function(exports) {
 
-  var tagRE = /[ ]?#(w*[一-龠_ぁ-ん_ァ-ヴーa-zA-Z0-9]+w*)/g;
+  var tagRE = /[ ]?#(w*[一-龠_ぁ-ん_ァ-ヴーa-zA-Z0-9・]+w*)/g;
   var userRE = /@([A-Za-z0-9_-]+)/;
   var optionRE = /(\S+\:\S+)/g;
 
